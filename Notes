@@ -1,0 +1,55 @@
+Drunk Horoscopes
+
+User Input
+-Zodiac sign
+-How is your day
+-Fav liquor
+
+------------------
+First filter by Zodiac sign = drink category (http://www.thecocktaildb.com/api/json/v1/1/list.php?c=list)
+
+Aries - "Milk / Float / Shake"
+Taurus - "Soft Drink / Soda"
+Gemini - "Beer"
+Cancer - "Punch / Party Drink"
+Leo - "Ordinary Drink"
+Virgo - "Coffee / Tea"
+Libra - "Homemade Liqueur"
+Scorpio - "Cocktail"
+Sagittarius - "Shot"
+Capricorn - "Cocoa"
+Aquarius - "Cocktail"
+Pisces - "Other/Unknown"
+
+--------------------
+Take all the cocktail ID's from the corresponding zodiac signs category
+
+Make large table based on categories
+
+  create table drinks
+    :sign - zodiac
+    :drink name
+    :drink id
+    :instructions
+    :alcoholic
+    :drink category
+    :number of ingredients
+
+  create table ingredients
+    :name
+
+  create table Recipes
+    :drink id
+    :ingredient id
+
+  Array of random horoscopes
+
+  Class Drinks
+
+  Class Ingredients
+
+  Class Recipes
+
+------------------
+Puts out
+ #{Beginning horoscope sentence}+ #{how many drinks you should drink}+#{name of the drink}+#{ending statement}
