@@ -1,9 +1,10 @@
 Drunk Horoscopes
 
 User Input
--Zodiac sign
+-Name - save to user table
+-Zodiac sign -save to user table
 -How is your day
--Fav liquor
+
 
 ------------------
 First filter by Zodiac sign = drink category (http://www.thecocktaildb.com/api/json/v1/1/list.php?c=list)
