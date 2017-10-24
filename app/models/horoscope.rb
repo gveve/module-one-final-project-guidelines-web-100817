@@ -16,7 +16,7 @@ class Horoscope < ActiveRecord::Base
 
     def text_two
 
-    words = ["meet", "earn", "find", "discover", "realize", "uncover", "come to terms with", "own", "come to realize"]
+    words = ["meet", "learn", "find", "discover", "realize", "uncover", "come to terms with", "own", "come to realize"]
 
     output = words.sample
     return output
@@ -46,7 +46,7 @@ class Horoscope < ActiveRecord::Base
        "start to mean something to you", "take on a new meaning to you", "take on new meaning in your life",
         "mean something to you", "make you re-think how you treated someone earlier in your life",
          "think about how you treat the people around you", "make you think about how you treat your children or family members",
-          "look twice at the elderly and infirmed", "make you consider being more compassionate to those less fortunate than you",
+          "make you consider being more compassionate to those less fortunate than you",
            "make you think twice before taking a risk in your life", "make you rethink things",
             "give you pause to how you live your life", "force you to remember things gone by"]
 
@@ -75,11 +75,11 @@ class Horoscope < ActiveRecord::Base
 
     def text_six
       words = ["When situations like this arise, you can warm your soul with",
-         "The only way to handle this oncoming life change is to drink",
+         "The only way to handle this oncoming life change is to drink a",
           "What you need to always remember is that at the end of the day you could aways use a",
-           "If this get's you down the thing to get you up is a",
+           "If this get's you down, the thing to get you up is a",
             "The only cure we can perscribe for this is to drink a",
-             "When the moons align for you in this way, it calls for a",
+             "When the stars align for you in this way, it calls for a",
               "Be strong in your will, and drink a strong"]
 
                            output = words.sample
@@ -89,8 +89,16 @@ class Horoscope < ActiveRecord::Base
     current_drink = Drink.find(self.drink_id)
     ingredients = Recipe.get_ingredients(self.drink_id)
 
+<<<<<<< HEAD
     final_horoscope = ["#{text_one} \nyou will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}. #{text_six} #{current_drink.drink_name}"]
     ingredients.each {|ingredient| final_horoscope << "\n#{ingredient}"}
+=======
+    # binding.pry
+    final_horoscope = ["\n--------------------------------------------\n\e[1m\n Your Drunkoscope©\n Sun Sign: #{current_drink.sign}\e[0m \n
+      #{text_one} you will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}.\n
+       #{text_six} \e[5m#{current_drink.drink_name}\e[0m \n\n\e[1mInstructions:\e[0m #{current_drink.instructions}\n\n\e[1mIngredients\e[0m"]
+    ingredients.each {|ingredient| final_horoscope << "#{ingredient}\n"}
+>>>>>>> 418885b9508cf284bca2ec1579dbda00f1849854
     self.horoscope = final_horoscope
     self.save
     final_horoscope
