@@ -88,4 +88,5 @@ end
 final_horoscope = ["#{text_one} you will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}. #{text_six}"]
 return final_horoscope
 end
-puts horoscope_generator
+#puts horoscope_generator
+#puts Recipe.get_ingredients(5)

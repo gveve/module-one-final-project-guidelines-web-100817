@@ -12,3 +12,7 @@
   #     sad = 4 or more ingredients in drink
 
 ## get_random_drink_by_star_sign
+
+def find_drink_based_on_sign(sign)
+
+end
