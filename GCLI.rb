@@ -8,33 +8,8 @@ def welcome
      we can provide you with guidance on your drinking habits for the day."
 end
 
-def run_program
-  welcome
-  sun_sign = get_user_sign
-  if ['aries', 'taurus', 'gemini', 'cancer', 'leo', 'virgo', 'libra', 'scorpio', 'sagittarius', 'capricorn', 'aquarius', 'pisces'].include?(sun_sign)
-    mood = get_mood_from_user
-    if mood == 1 || 2
-      booze = get_booze_from_user
-      if  ['1', '2', '3', '4', '5'].include?(booze)
-        horoscope_generator(sun_sign, mood, booze)
-  else
-    puts "Invalid input. Please try again."
-    get_user_sign
-  end
-end
 
-# def run_program
-#   case get_user_choice
-#     character = get_character_from_user
-#     show_character_movies(character)
-#   when "2"
-#     movie = get_movie_from_user
-#     show_movie_details(movie)
-#   else
-#     puts "Invalid input. Please try again."
-#     get_user_choice
-#   end
-# end
+
 
 def get_user_sign
   puts "Please enter your Sun Sign:
@@ -61,10 +36,4 @@ def get_mood_from_user
   puts "Are you happy or sad? Enter 1 for happy, 2 for sad."
   # use gets to capture the user's input. This method should return that input, downcased.
   gets.chomp.downcase
-end
-
-def get_booze_from_user
-  puts "What is your prefered alcohol?(enter a number) 1. Gin, 2. Vodka, 3. Whiskey, 4. Rum, 5. Tequila"
-  #gets users perffered booze
-  gets.chomp
 end

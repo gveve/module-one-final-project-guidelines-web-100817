@@ -54,11 +54,11 @@ Make large table based on categories
 Puts out
  #{Beginning horoscope sentence}+ #{how many drinks you should drink}+#{name of the drink}+#{ending statement}
 
-Sun sign: Leo
-With Gemini rising, you will come to terms with an item you own, like a broken
+#Sun sign: Leo
+#"With Gemini rising, you will come to terms with an item you own, like a broken
 watch or a broken clock, and it will mean the most to you. Don't let this opportunity
 pass you by. The only cure we can prescribe for this is to drink #(no_ing)6 #"Strawberry Margarita"
-instructions:
+#instructions:
   #"Rub rim of cocktail glass with lemon juice and dip rim in salt. Shake schnapps, tequila,
   triple sec, lemon juice, and strawberries with ice, strain into the salt-rimmed glass, and serve."
   #Ingredients: Tequila
