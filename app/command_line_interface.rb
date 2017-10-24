@@ -49,3 +49,20 @@ def get_user_name
   puts "What is your name?"
   gets.chomp.downcase
 end
+
+def get_user_selection
+  puts "What would you like to do now?"
+  puts "Your options are:"
+  puts "  1. What is your mood?"
+  puts "  2. See your last 3 horoscopes"
+  puts "  3. Exit"
+  puts "Enter a number:"
+  input = gets.chomp.downcase
+  if input == "1" || "2" || "3"
+  else
+      puts "Invalid input. Please try again."
+      get_user_selection
+  end
+  input
+end
+

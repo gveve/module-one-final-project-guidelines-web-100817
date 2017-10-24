@@ -17,6 +17,19 @@ def run_program
   drunkoscope = Horoscope.create(drink_id: current_drink.id, user_id: user.id)
   drunk = drunkoscope.horoscope_generator
   puts drunk
+  user_input = get_user_selection
+  while user_input != "3"
+    if user_input == "1"
+      current_drink = get_mood_return_drink(user)
+      # binding.pry
+      drunkoscope = Horoscope.create(drink_id: current_drink.id, user_id: user.id)
+      drunk = drunkoscope.horoscope_generator
+      puts drunk
+    elsif user_input == "2"
+      Horoscope.get_last_3_horoscopes(user.id).each {|horoscope| puts horoscope.horoscope}
+    end
+    user_input = get_user_selection
+  end
 end
 
 run_program
