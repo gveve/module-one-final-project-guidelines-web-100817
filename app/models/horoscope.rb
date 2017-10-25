@@ -89,18 +89,17 @@ class Horoscope < ActiveRecord::Base
     current_drink = Drink.find(self.drink_id)
     ingredients = Recipe.get_ingredients(self.drink_id)
 
-    final_horoscope = ["#{text_one} \nyou will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}. #{text_six} #{current_drink.drink_name}"]
-    ingredients.each {|ingredient| final_horoscope << "\n#{ingredient}"}
-    final_horoscope = ["\n--------------------------------------------\n\e[1m\n Your Drunkoscope©\n Sun Sign: #{current_drink.sign}\e[0m \n
+    final_horoscope = "\n--------------------------------------------\n\e[1m\n Your Drunkoscope©\n Sun Sign: #{current_drink.sign}\e[0m \n
       #{text_one} you will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}.\n
-       #{text_six} \e[5m#{current_drink.drink_name}\e[0m \n\n\e[1mInstructions:\e[0m #{current_drink.instructions}\n\n\e[1mIngredients\e[0m"]
+       #{text_six} \e[5m#{current_drink.drink_name}\e[0m \n\n\e[1mInstructions:\e[0m #{current_drink.instructions}\n\n\e[1mIngredients\e[0m"
     ingredients.each {|ingredient| final_horoscope << "#{ingredient}\n"}
+
     self.horoscope = final_horoscope
     self.save
     final_horoscope
   end
 
   def self.get_last_3_horoscopes(user_id)
-    Horoscope.where(user_id: user_id).last(3)
+    Horoscope.where(user_id: user_id).last(4)
   end
 end

@@ -52,12 +52,13 @@ def get_user_name
 end
 
 def get_user_selection
-  puts "What would you like to do now?"
-  puts "Your options are:"
-  puts "  1. What is your mood?"
+  puts "\n-----------------------------------"
+  puts "\nWhat would you like to do now?"
+  puts "\nYour options are:\n"
+  puts "  1. Get another horoscope"
   puts "  2. See your last 3 horoscopes"
   puts "  3. Exit"
-  puts "Enter a number:"
+  puts "\nEnter a number:"
   input = gets.chomp.downcase
   if input == "1" || "2" || "3"
   else
@@ -66,4 +67,3 @@ def get_user_selection
   end
   input
 end
-

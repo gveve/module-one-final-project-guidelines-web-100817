@@ -16,6 +16,7 @@ def run_program
   # binding.pry
   drunkoscope = Horoscope.create(drink_id: current_drink.id, user_id: user.id)
   drunk = drunkoscope.horoscope_generator
+  # binding.pry
   puts drunk
   user_input = get_user_selection
   while user_input != "3"
@@ -26,24 +27,9 @@ def run_program
       drunk = drunkoscope.horoscope_generator
       puts drunk
     elsif user_input == "2"
-      Horoscope.get_last_3_horoscopes(user.id).each {|horoscope| puts horoscope.horoscope.to_s}
+      Horoscope.get_last_3_horoscopes(user.id).each {|horoscope| puts horoscope.horoscope}
     end
     user_input = get_user_selection
   end
 end
 run_program
-
-
-
-
-# run
-#   what's your name?
-#   create a new user and save it or find itin the user table
-#   if found user "welcome back"
-#     if new user
-#       ask for sign
-#
-#       ------------
-#       what's my drunkoscopes
-#         -ask about your day
-#       list of past drunkoscopes
