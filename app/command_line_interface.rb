@@ -31,15 +31,16 @@ def get_user_sign
 end
 
 def get_mood_return_drink(user)
+  array = ['1', '2']
   puts "\n-----------------------------------"
   puts "\nAre you happy or sad? Enter 1 for happy, 2 for sad."
   # use gets to capture the user's input. This method should return that input, downcased.
   mood = gets.chomp.downcase
-  if mood == 1 || 2
-    else
-      puts "\n\n-----------------------------------"
-      puts "\n\e[1mInvalid input. Please try again.\e[0m"
-      get_mood_from_user
+  if array.include?(mood)
+  else
+    puts "\n\n-----------------------------------"
+    puts "\n\e[1mInvalid input. Please try again.\e[0m"
+    get_mood_return_drink(user)
   end
   # binding.pry
   find_drink_based_on_mood(mood, user.sign)
@@ -52,6 +53,7 @@ def get_user_name
 end
 
 def get_user_selection
+  array = ['1', '2', '3']
   puts "What would you like to do now?"
   puts "Your options are:"
   puts "  1. What is your mood?"
@@ -59,7 +61,7 @@ def get_user_selection
   puts "  3. Exit"
   puts "Enter a number:"
   input = gets.chomp.downcase
-  if input == "1" || "2" || "3"
+  if array.include?(input)
   else
       puts "Invalid input. Please try again."
       get_user_selection
