@@ -26,12 +26,11 @@ def run_program
       drunk = drunkoscope.horoscope_generator
       puts drunk
     elsif user_input == "2"
-      Horoscope.get_last_3_horoscopes(user.id).each {|horoscope| puts horoscope.horoscope}
+      Horoscope.get_last_3_horoscopes(user.id).each {|horoscope| puts horoscope.horoscope.to_s}
     end
     user_input = get_user_selection
   end
 end
-
 run_program
 
 

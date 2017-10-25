@@ -1,5 +1,5 @@
 class Horoscope < ActiveRecord::Base
-
+  belongs_to :user
   def horoscope_generator
 # binding.pry
     def text_one
@@ -89,16 +89,12 @@ class Horoscope < ActiveRecord::Base
     current_drink = Drink.find(self.drink_id)
     ingredients = Recipe.get_ingredients(self.drink_id)
 
-<<<<<<< HEAD
     final_horoscope = ["#{text_one} \nyou will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}. #{text_six} #{current_drink.drink_name}"]
     ingredients.each {|ingredient| final_horoscope << "\n#{ingredient}"}
-=======
-    # binding.pry
     final_horoscope = ["\n--------------------------------------------\n\e[1m\n Your Drunkoscope©\n Sun Sign: #{current_drink.sign}\e[0m \n
       #{text_one} you will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}.\n
        #{text_six} \e[5m#{current_drink.drink_name}\e[0m \n\n\e[1mInstructions:\e[0m #{current_drink.instructions}\n\n\e[1mIngredients\e[0m"]
     ingredients.each {|ingredient| final_horoscope << "#{ingredient}\n"}
->>>>>>> 418885b9508cf284bca2ec1579dbda00f1849854
     self.horoscope = final_horoscope
     self.save
     final_horoscope
