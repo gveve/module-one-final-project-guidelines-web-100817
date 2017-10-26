@@ -80,9 +80,7 @@ class Horoscope < ActiveRecord::Base
     current_drink = Drink.find(drink_id)
     ingredients = Recipe.get_ingredients(drink_id)
     # binding.pry
-    final_horoscope = "\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.\n\e[1m\n Your Drunkoscope©\n Sun Sign: #{self.user.sign.capitalize}\e[0m \n
-      #{text_one} you will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}.\n
-       #{text_six} \e[5m#{current_drink.drink_name}\e[0m \n\n\e[1mInstructions:\e[0m #{current_drink.instructions}\n\n\e[1mIngredients:\e[0m\n"
+    final_horoscope = "\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:.\n\e[1m\n Your Drunkoscope©\n Sun Sign: #{self.user.sign.capitalize}\e[0m \n #{text_one} you will #{text_two} #{text_three}, and it will #{text_four}. #{text_five}.\n #{text_six} \e[5m#{current_drink.drink_name}\e[0m \n\n\e[1mInstructions:\e[0m #{current_drink.instructions}\n\n\e[1mIngredients:\e[0m\n"
     ingredients.each { |ingredient| final_horoscope << "#{ingredient}\n" }
 
     self.horoscope = final_horoscope
