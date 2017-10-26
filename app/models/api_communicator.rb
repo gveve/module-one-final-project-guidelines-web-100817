@@ -2,10 +2,9 @@ require 'rest-client'
 require 'json'
 require 'pry'
 
-# require_relative '../app/models/drink.rb'
-# require_relative '../app/models/ingredient.rb'
-# require_relative '../app/models/recipe.rb'
+# Api_communicator pulls data from thecocktaildb.com to create and save drinks and populate the database tables with information
 
+# get_category_urls - parses the names of each category in the api and saves the url to access all the drinks in each category
 def get_category_urls
   raw_data = RestClient.get('http://www.thecocktaildb.com/api/json/v1/1/list.php?c=list')
   category_data = JSON.parse(raw_data)
@@ -17,6 +16,7 @@ def get_category_urls
   category_urls
 end
 
+# get_drink_ids - parses all the data from each cateory page and saves the id of each drink to access each individual drink page for more detailed information
 def get_drink_ids
   category_urls = get_category_urls
   drink_ids = []
@@ -30,6 +30,7 @@ def get_drink_ids
   drink_ids
 end
 
+# create_drinks - takes the id of each drink and parses their detailed information. Then creates a new instance, sets its attributes from each field, and saves it to the database
 def create_drinks
   drink_ids = get_drink_ids
   drink_ids.each do |id|
@@ -49,6 +50,7 @@ def create_drinks
   end
 end
 
+# create_recipes - takes the parsed data of the drink and a drink object to craete recipes which belong to drinks and belong to ingredients to create a many to many relationship
 def create_recipes(drink_data, new_drink)
   i = 1
   while i < 15
@@ -62,6 +64,7 @@ def create_recipes(drink_data, new_drink)
   end
 end
 
+# create_ingredients - takes the parsed drink data, creates and saves to the database new ingredients, returns the number of ingredients created for use in the Drink.no_ingredients attribute
 def create_ingredients(drink_data)
   ingredient_counter = 0
   i = 1
@@ -76,6 +79,7 @@ def create_ingredients(drink_data)
   ingredient_counter
 end
 
+# get_sign - checks the category of the drink and assigns it a star sign for use in later methods to find drinks
 def get_sign(drink_data)
   case drink_data['strCategory']
   when 'Milk / Float / Shake'

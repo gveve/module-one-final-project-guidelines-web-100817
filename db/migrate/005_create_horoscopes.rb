@@ -1,3 +1,4 @@
+#Migration to initialize horoscopes table in db
 class CreateHoroscopes < ActiveRecord::Migration[4.2]
   def change
     create_table :horoscopes do |t|

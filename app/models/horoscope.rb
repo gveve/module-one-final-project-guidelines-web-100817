@@ -1,7 +1,8 @@
+#Horoscope class has a text horoscope and refers to a user
 class Horoscope < ActiveRecord::Base
   belongs_to :user
   def horoscope_generator
-    # binding.pry
+    # text_one - _five sample different parts of a horoscope to create randomly generated horoscope.
     def text_one
       words = ['Today', 'This week', 'Soon', 'Before you know it', 'Now is the time that',
                'Your wise advice is that soon', 'What you need to know is soon', 'The stars say that',
@@ -76,7 +77,8 @@ class Horoscope < ActiveRecord::Base
       output = words.sample
       output
     end
-
+    
+    #Final horoscope combines all text into a final single formatted string to be saved in the database and displayed in the command line
     current_drink = Drink.find(drink_id)
     ingredients = Recipe.get_ingredients(drink_id)
     # binding.pry
@@ -90,6 +92,7 @@ class Horoscope < ActiveRecord::Base
     final_horoscope
   end
 
+  #returns the last three created horoscopes in the databaase
   def self.get_last_3_horoscopes(user_id)
     Horoscope.where(user_id: user_id).last(4)
   end

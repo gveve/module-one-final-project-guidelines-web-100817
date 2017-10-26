@@ -1,3 +1,4 @@
+#migration to initialize drinks table
 class CreateDrinks < ActiveRecord::Migration[4.2]
   def change
     create_table :drinks do |t|

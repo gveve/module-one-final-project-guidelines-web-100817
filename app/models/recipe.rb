@@ -1,3 +1,4 @@
+#Recipe class to show relationship between many drinks and many ingredients
 class Recipe < ActiveRecord::Base
   belongs_to :ingredient
   belongs_to :drink

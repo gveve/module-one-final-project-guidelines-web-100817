@@ -1,5 +1,5 @@
 def welcome
-
+#Puts a pretty introduction
 puts"
 ______                  _      _   _
 |  _  \\                | |    | | | |
@@ -31,6 +31,7 @@ sleep(0.5)
 end
 
 def get_user_sign
+# Asks the user for their sign and saves it
   sleep(0.5)
   puts "\n    Your Sun Sign, which is the zodiacal sign position of the Sun at the time of your birth.
      Each Sun Sign has a different perspective on the aspects of each day.
@@ -70,6 +71,7 @@ def get_user_sign
 end
 
 def get_mood_return_drink(user)
+# Finds a random drink recommend, takes in a user to get their sign, gets input for mood
   puts "\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:."
   sleep(1)
   puts "\n\e[1mAre you happy or sad? Enter 1 for happy, 2 for sad.\e[0m\n\n\n"
@@ -87,6 +89,7 @@ def get_mood_return_drink(user)
 end
 
 def get_user_name
+# gets input from user for username
   sleep(1)
   puts "\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:."
   sleep(1)
@@ -95,6 +98,7 @@ def get_user_name
 end
 
 def get_user_selection
+  # gets option input from user, checks validity of input
   puts "\n.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:._.:*~*:."
   puts "\n\e[1mWhat would you like to do now?\e[0m"
   puts "\nYour options are:\n"
@@ -118,6 +122,7 @@ def get_user_selection
 end
 
 def star_reader
+#VERY IMPORTANT!!!!!!!
   puts "
                 *    .
           '  +       @    .  '
